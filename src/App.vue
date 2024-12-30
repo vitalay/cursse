@@ -1,29 +1,43 @@
+<script >
+import { ref } from 'vue';
+export default{
+  setup() {
+     const name =  ref('Дом');
+     const status = ref('active');
+     const tasks = ref(['One', 'Two', 'three']);   
+
+     const toggleStatus = () => {
+       if (status.value === 'active') {
+         status.value = 'pending';
+       }
+       else if (status.value === 'pending') {
+         status.value = 'inactive';
+       }
+       else {
+         status.value = 'active';
+       }
+     }
+
+     return {
+       name,
+       status,
+       tasks,
+       toggleStatus
+     }
+     }
+   }
 
 
-<script>
-export default {
-  data() {
-    return{
-      titel: 'Дом',
-      status: '',
-      tasks: [ 'One', 'Two', 'three' ],
-      cilca: 'https://www.google.com/'
-    }
-  },
-  methods: {
-  }
-}
 </script>
-<template>
-  <h1>Привет {{ titel }}</h1>
-  <p v-if="status === 'activen'">Меня Видно</p>
-  <p v-else-if="status === 'neactiven'">Меня не видно</p>
-  <p v-else>типерь точно активен</p>
-  
-  <h3>Задание</h3>
- <ul>
-  <li v-for="task in tasks" :key="task">{{ task }}</li>
- </ul>
- <a :href="cilca">Сылка на google</a>
-</template>
 
+<template>
+  <h1>Привет {{ name }}</h1>
+  <p v-if="status === 'active'">User is active</p>
+  <p v-else-if="status === 'pending'">User is pending</p>
+  <p v-else>User is inactive</p>
+  <h3>Задание</h3>
+  <ul>
+    <li v-for="task in tasks" :key="task">{{ task }}</li>
+  </ul>
+  <button @click="toggleStatus">Смена Статуса</button>
+</template>

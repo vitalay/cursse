@@ -1,7 +1,6 @@
-<script >
-import { ref } from 'vue';
-export default{
-  setup() {
+<script setup>
+     import { ref } from 'vue';
+
      const name =  ref('Дом');
      const status = ref('active');
      const tasks = ref(['One', 'Two', 'three']);   
@@ -16,18 +15,7 @@ export default{
        else {
          status.value = 'active';
        }
-     }
-
-     return {
-       name,
-       status,
-       tasks,
-       toggleStatus
-     }
-     }
-   }
-
-
+     };
 </script>
 
 <template>

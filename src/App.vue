@@ -31,10 +31,13 @@ const nawItems = ['Timeline', 'Activities', 'Progress'];
   <nav class=" sticky  bottom-0 z-10 bg-white">
     <ul class="flex items-center justify-around border-t">
       <li v-for="page in nawItems" :key="page" class="flex-1">
-        <a class="flex items-center justify-center p-2 text-xs capitalize" href="#Timeline">
-          <ClockIcon class="h-6 w-6" />timeline</a>
+        <a :href="`#${page.toLowerCase()}`" class="flex items-center justify-center p-2 text-xs capitalize">
+          <ClockIcon v-if="page === 'Timeline'" class="h-6 w-6" />
+          <ListBulletIcon v-else-if="page === 'Activities'" class="h-6 w-6" />
+          <ChartBarIcon v-else class="h-6 w-6" /> {{ page }}
+        </a>
       </li>
-     
+
     </ul>
   </nav>
 

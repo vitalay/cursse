@@ -11,8 +11,11 @@ import { CheckCircleIcon } from '@heroicons/vue/24/outline';
   <a href="#">
     <img src="./assets/img/logo.png" alt="logo" class="h-9">
   </a>
-  <a href="#">
-    <div>dey complete!</div>
+  <a href="#" class="text-sm">
+    <div class="flex items-center gap-1">
+      dey complete!
+      <CheckCircleIcon class="h-7 text-green-500" />
+    </div>
   </a>
  
 </header> 

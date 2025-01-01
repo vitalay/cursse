@@ -4,6 +4,7 @@ import { ref } from 'vue'
 import { CheckCircleIcon } from '@heroicons/vue/24/solid';
 import { ClockIcon, ListBulletIcon, ChartBarIcon } from '@heroicons/vue/24/outline';
 
+const nawItems = ['Timeline', 'Activities', 'Progress'];
 
 </script>
 
@@ -29,18 +30,11 @@ import { ClockIcon, ListBulletIcon, ChartBarIcon } from '@heroicons/vue/24/outli
 
   <nav class=" sticky  bottom-0 z-10 bg-white">
     <ul class="flex items-center justify-around border-t">
-      <li class="flex-1">
+      <li v-for="page in nawItems" :key="page" class="flex-1">
         <a class="flex items-center justify-center p-2 text-xs capitalize" href="#Timeline">
           <ClockIcon class="h-6 w-6" />timeline</a>
       </li>
-      <li class="flex-1">
-        <a class="flex items-center justify-center p-2 text-xs capitalize" href="#Activities">
-          <listBulletIcon class="h-6 w-6"/>activities</a>
-      </li>
-      <li class="flex-1">
-        <a class="flex items-center justify-center p-2 text-xs capitalize" href="#Progress">
-          <ChartBarIcon class="h-6 w-6"/>progress</a>
-      </li>
+     
     </ul>
   </nav>
 

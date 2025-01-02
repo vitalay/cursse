@@ -1,14 +1,9 @@
 <script setup>
-import { ClockIcon, ListBulletIcon, ChartBarIcon } from '@heroicons/vue/24/outline';
-import { PAGE_TIMELINE, PAGE_ACTIVITIES, PAGE_PROGRESS } from '../constants';
+
+import { NAV_ITEMS } from '../constants';
 import NavItems from './NavItems.vue';
 
 
-const navItems = {
-  [PAGE_TIMELINE]: ClockIcon,
-  [PAGE_ACTIVITIES]: ListBulletIcon,
-  [PAGE_PROGRESS]: ChartBarIcon,
-};
 
 defineProps(['currentPage']);
 
@@ -20,7 +15,7 @@ const emit = defineEmits(['navigate']);
   <nav class="sticky bottom-0 z-10 bg-white">
     <ul class="flex items-center justify-around border-t">
       <NavItems 
-        v-for="(icon, page) in navItems"
+        v-for="(icon, page) in NAV_ITEMS"
         :key="page"
         :href="`#${page}`"
         :class="{'bg-gray-200 pointer-events-none' : page === currentPage}"

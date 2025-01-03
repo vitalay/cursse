@@ -1,4 +1,4 @@
-import { NAV_ITEMS, HOURS_IN_DAY } from "./constants";
+import { NAV_ITEMS, HOURS_IN_DAY, MIDNIGHT_HOUR } from "./constants";
 
 
 export function isPageValid(page) {
@@ -6,6 +6,8 @@ export function isPageValid(page) {
 }
 
 export function isTimelineItemValid({ hour }) {
-    return typeof hour === 'number' && hour >= 0 && hour < HOURS_IN_DAY
+    return (
+			typeof hour === 'number' && hour >= MIDNIGHT_HOUR && hour < HOURS_IN_DAY
+		)
 
 }

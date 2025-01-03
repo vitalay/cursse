@@ -5,7 +5,12 @@ import NavItems from './NavItems.vue';
 
 
 
-defineProps(['currentPage']);
+defineProps ({
+  currentPage: {
+    required: true,
+    type: String
+  }
+})
 
 const emit = defineEmits(['navigate']);
 
@@ -18,7 +23,7 @@ const emit = defineEmits(['navigate']);
         v-for="(icon, page) in NAV_ITEMS"
         :key="page"
         :href="`#${page}`"
-        :class="{'bg-gray-200 pointer-events-none' : page === currentPage}"
+        :class="{'bg-gray-200 pointer-events-none' :page === currentPage}"
         @click="emit('navigate', page)"
       >
         <component :is="icon" class="h-6 w-6" /> 
